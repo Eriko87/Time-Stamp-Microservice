@@ -44,7 +44,7 @@ app.get("/api/timestamp/:date_string?", function (req, res) {
   }else{
     //for 1450137600 format
     if(isNaN(Number(date_string))===false){
-      res.json({"unix": parseInt(date_string), "utc" : new Date(date_string * 1000).toUTCString()});
+      res.json({"unix": parseInt(date_string), "utc" : new Date(parseInt(date_string)).toUTCString()});
     }else{
       if(date_string===undefined){
         res.json({"unix": new Date().getTime()/1000, "utc" : new Date().toUTCString()});
